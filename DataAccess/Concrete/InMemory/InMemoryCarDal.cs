@@ -9,7 +9,10 @@ using System.Text;
 namespace DataAccess.Concrete.InMemory
 {
    public class InMemoryCarDal : ICarDal
-    {
+    {        
+              // CALL OFF
+    
+    
         List<Car> _cars;
 
         public InMemoryCarDal()
