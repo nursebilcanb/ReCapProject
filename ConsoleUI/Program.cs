@@ -10,31 +10,56 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             CarManager carManager = new CarManager(new EfCarDal());
+            var result = carManager.GetCarDetails();
 
-            foreach (var car in carManager.GetCarDetails())
+
+            if (result.Success == true)
             {
-                Console.WriteLine($"CarId: {car.CarId}" + " / " + car.BrandName+ " / "+ car.ColorName +" / " + $"Daily price: {car.DailyPrice}");
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine($"CarId: {car.CarId}" + " / " + car.BrandName + " / " + car.ColorName + " / " + $"Daily price: {car.DailyPrice}");
 
+                }
             }
+            
 
-            Console.WriteLine("----------------------------------------------------------------------");
+            //BrandManagerTest();
+            //ColorManagerTest();
 
-            BrandManager brandManager = new BrandManager(new EfBrandDal());
+        }
 
-            foreach (var brand in brandManager.GetAll())
-            {
-                Console.WriteLine(brand.BrandName);
-            }
-
+        private static void ColorManagerTest()
+        {
             Console.WriteLine("---------------------------------------------------------------------");
 
             ColorManager colorManager = new ColorManager(new EfColorDal());
+            var result = colorManager.GetAll();
 
-            foreach (var color in colorManager.GetAll())
+            if (result.Success==true)
             {
-                Console.WriteLine(color.ColorName);
+                foreach (var color in result.Data)
+                {
+                    Console.WriteLine(color.ColorName);
+                }
             }
+           
+        }
 
+        private static void BrandManagerTest()
+        {
+            Console.WriteLine("----------------------------------------------------------------------");
+
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            var result = brandManager.GetAll();
+
+            if (result.Success==true)
+            {
+                foreach (var brand in result.Data)
+                {
+                    Console.WriteLine(brand.BrandName);
+                }
+            }
+            
         }
     }
 }
