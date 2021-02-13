@@ -1,6 +1,7 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
+using Entities.Concrete;
 using System;
 
 namespace ConsoleUI
@@ -8,6 +9,18 @@ namespace ConsoleUI
     class Program
     {
         static void Main(string[] args)
+        {
+            Customer customer = new Customer {UserId=2, CompanyName = "Halkbank" };
+
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            customerManager.Add(customer);
+
+            //CarManagerTest();
+            //BrandManagerTest();
+            //ColorManagerTest();
+        }
+
+        private static void CarManagerTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
             var result = carManager.GetCarDetails();
@@ -21,11 +34,6 @@ namespace ConsoleUI
 
                 }
             }
-            
-
-            //BrandManagerTest();
-            //ColorManagerTest();
-
         }
 
         private static void ColorManagerTest()

@@ -7,21 +7,26 @@ namespace Business.Constants
     public class Messages
     {
 
-       public static string DescriptionsInvalid = "Please, write the description length is more than two characters";
+        public static string DescriptionsInvalid = "Please, write the description length is more than two characters";
 
-       public static string DailyPriceInvalid = "Please, add a new car whose daily price is greater than 0!";
+        public static string DailyPriceInvalid = "Please, add a new car whose daily price is greater than 0!";
 
-       public static string Added = "Added";
+        public static string ReturnDateNull = "Please, deliver your car";
 
-       public static string Deleted = "Deleted";
+        public static string Added = "Added";
 
-       public static string Updated = "Updated";
+        public static string Deleted = "Deleted";
 
-       public static string CarsListed = "Cars listed";
+        public static string Updated = "Updated";
+
+        public static string CarsListed = "Cars listed";
         
-       public static string BrandsListed = "Brands listed";
+        public static string BrandsListed = "Brands listed";
 
-       public static string ColorsListed = "Colors listed";
+        public static string ColorsListed = "Colors listed";
+
+        public static string RentalsListed = "Rentals listed";
+
 
 
     }
