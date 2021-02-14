@@ -10,7 +10,7 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Customer customer = new Customer {UserId=2, CompanyName = "Halkbank" };
+            Customer customer = new Customer { UserId = 5, CompanyName = "Halkbank" };
 
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             customerManager.Add(customer);
