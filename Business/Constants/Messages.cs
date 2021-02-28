@@ -27,6 +27,11 @@ namespace Business.Constants
 
         public static string RentalsListed = "Rentals listed";
 
+        public static string ImagesListed = "Images listed";
+        
+        public static string CarImageExceed = "Car images exceed";
+
+
 
 
     }
