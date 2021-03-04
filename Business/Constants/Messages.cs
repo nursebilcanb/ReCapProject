@@ -31,6 +31,21 @@ namespace Business.Constants
         
         public static string CarImageExceed = "Car images exceed";
 
+        public static string UserRegistered = "Registered";
+
+        public static string UserNotFound = "User not found";
+
+        public static string PasswordError = "Password error";
+
+        public static string AccessTokenCreated = "Token created successfully";
+
+        public static string SuccessfulLogin = "Login successfully";
+
+        public static string UserAlreadyExists = "This user already exists";
+
+        public static string AuthorizationDenied = "You have not any authorization";
+
+
 
 
 

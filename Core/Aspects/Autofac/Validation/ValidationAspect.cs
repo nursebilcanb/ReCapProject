@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using static Core.Utilities.Interceptors.MethodInterceptionBaseAttribute;
+using  Core.Utilities.Interceptors;
 
 namespace Core.Aspects.Autofac.Validation
 {
