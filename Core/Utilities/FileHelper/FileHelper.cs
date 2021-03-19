@@ -9,22 +9,46 @@ namespace Core.Utilities.FileHelper
 {
     public class FileHelper
     {
+        //public static string Add(IFormFile file)
+        //{
+        //    var sourcepath = Path.GetTempFileName();
+        //    if (file.Length > 0)
+        //    {
+        //        using (var stream = new FileStream(sourcepath, FileMode.Create))
+        //        {
+        //            file.CopyTo(stream);
+        //        }
+        //    }
+        //    var result = newPath(file);
+        //    File.Move(sourcepath, result);
+        //    return result;
+        //}
 
-
-        public static string Add(IFormFile file)
+        public static string Add(IFormFile image)
         {
-            var sourcepath = Path.GetTempFileName();
-            if (file.Length > 0)
-            {
-                using (var stream = new FileStream(sourcepath, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
+            string directory = Environment.CurrentDirectory + @"\wwwroot";
+            string fileName = CreateNewFileName(image.FileName); 
+            string path = Path.Combine(directory, "Images"); 
+            if (!Directory.Exists(path)) {
+                Directory.CreateDirectory(path);
+                    }
+            using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+            { 
+                image.CopyTo(stream); 
             }
-            var result = newPath(file);
-            File.Move(sourcepath, result);
-            return result;
+            string filePath = Path.Combine(path, fileName);
+                return fileName; 
         }
+
+        public static string CreateNewFileName(string fileName)
+        {
+            string[] file = fileName.Split('.');
+            string extension = file[1];
+            string newFileName = string.Format(@"{0}." + extension, Guid.NewGuid()); return newFileName;
+        }
+
+
+
         public static IResult Delete(string path)
         {
             try

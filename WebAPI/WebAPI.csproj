@@ -16,5 +16,17 @@
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Images\1cb24166-0a0c-48fc-a091-505ac8d572ee_2_28_2021.jpg" />
+    <None Include="wwwroot\Images\2100a535-af12-497f-98f0-f3b495ca6ff2_2_28_2021.jpg" />
+    <None Include="wwwroot\Images\569ca546-7e92-4033-8231-ee91e54feaf3_3_17_2021.jpg" />
+    <None Include="wwwroot\Images\62b34a42-b4fc-44e6-b3bf-1e8374129b4a_3_18_2021.jpg" />
+    <None Include="wwwroot\Images\71597379-22a3-4845-8eff-a139f38c0484_3_17_2021.jpg" />
+    <None Include="wwwroot\Images\8abe8390-57a7-40d1-b66e-6f1453bb7174_3_17_2021.jpg" />
+    <None Include="wwwroot\Images\cf1b1932-8372-4973-b7b4-4b9f1493df66_3_17_2021.jpg" />
+    <None Include="wwwroot\Images\f0d7f3ca-ee62-498a-b4be-e5a2aa3a8357_3_17_2021.jpg" />
+    <None Include="wwwroot\Images\logo.jpg" />
+  </ItemGroup>
+
 
 </Project>
