@@ -10,6 +10,7 @@ using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -53,18 +54,30 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailDto>> GetCarDetailsByCarId(int id)
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailsByCarId(id));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails().Where(x => x.CarId ==id).ToList());
         }
 
-        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarsByBrandId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId== id));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.BrandId== id));
         }
 
-
-        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarsByBrandAndColorId(int brandId, int colorId)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id));
+            List<CarDetailDto> carDetails = _carDal.GetCarDetails(c => c.BrandId == brandId && c.ColorId == colorId);
+            if (carDetails==null)
+            {
+                return new ErrorDataResult<List<CarDetailDto>>(Messages.CarNotFound);
+            }
+            else
+            {
+                return new SuccessDataResult<List<CarDetailDto>>(carDetails);
+            }
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarsByColorId(int id)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ColorId == id));
         }
 
         public IResult Update(Car car)

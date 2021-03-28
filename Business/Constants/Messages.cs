@@ -45,7 +45,7 @@ namespace Business.Constants
 
         public static string AuthorizationDenied = "You have not any authorization";
 
-
+        public static string CarNotFound = "This car hasn't found";
 
 
 

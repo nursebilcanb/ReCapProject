@@ -29,15 +29,18 @@ namespace Core.Utilities.FileHelper
             string directory = Environment.CurrentDirectory + @"\wwwroot";
             string fileName = CreateNewFileName(image.FileName); 
             string path = Path.Combine(directory, "Images"); 
+
             if (!Directory.Exists(path)) {
                 Directory.CreateDirectory(path);
                     }
+
             using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
             { 
                 image.CopyTo(stream); 
             }
+
             string filePath = Path.Combine(path, fileName);
-                return fileName; 
+                return fileName ;
         }
 
         public static string CreateNewFileName(string fileName)
