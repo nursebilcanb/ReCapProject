@@ -7,6 +7,7 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -24,6 +25,12 @@ namespace Business.Concrete
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
+            var result = _rentaldal.GetAll(r => r.CarId == rental.CarId && (r.ReturnDate == null || r.ReturnDate < DateTime.Now)).Any();
+
+            if (result)
+            {
+                return new ErrorResult(Messages.RentedCarAlreadyExists);
+            }
             _rentaldal.Add(rental);
 
             return new SuccessResult(Messages.Added);         
@@ -39,6 +46,11 @@ namespace Business.Concrete
         public IDataResult<List<Rental>> GetAll()
         {
             return new SuccessDataResult<List<Rental>>(_rentaldal.GetAll(),Messages.RentalsListed);
+        }
+
+        public IDataResult<List<Rental>> GetByCarId(int carId)
+        {
+            return new SuccessDataResult<List<Rental>>(_rentaldal.GetAll(r => r.CarId ==carId));
         }
 
         public IDataResult<List<Rental>> GetById(int id)

@@ -36,7 +36,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorName = co.ColorName,
                                  ImagePath = ca.ImagePath,
                                  ModelYear = c.ModelYear,
-                                 Description = c.Description
+                                 Description = c.Description,
+                                 Status = !context.Rentals.Any(r => r.CarId == c.CarId && (r.ReturnDate == null || r.ReturnDate > DateTime.Now))
                              };
                 return result.ToList();
 

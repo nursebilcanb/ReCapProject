@@ -17,5 +17,8 @@ namespace Business.Abstract
         IDataResult<List<Rental>> GetAll();
 
         IDataResult<List<Rental>> GetById(int id);
+
+        IDataResult<List<Rental>> GetByCarId(int carId);
+
     }
 }

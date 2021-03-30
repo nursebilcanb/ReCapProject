@@ -43,6 +43,8 @@ namespace Business.Constants
 
         public static string UserAlreadyExists = "This user already exists";
 
+        public static string RentedCarAlreadyExists = "This rental car already exists";
+
         public static string AuthorizationDenied = "You have not any authorization";
 
         public static string CarNotFound = "This car hasn't found";

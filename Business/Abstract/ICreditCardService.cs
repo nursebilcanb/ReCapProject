@@ -10,8 +10,15 @@ namespace Business.Abstract
     {
         IResult VerifyCard(CreditCard creditCard);
 
+        IDataResult<List<CreditCard>> GetAll();
+
         IDataResult<List<CreditCard>> GetByCardNumber(string cardNumber);
 
         IResult Update(CreditCard creditCard);
+
+        IResult Add(CreditCard creditCard);
+        
+        IResult Delete(CreditCard creditCard);
+
     }
 }

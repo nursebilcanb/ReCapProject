@@ -18,6 +18,23 @@ namespace Business.Concrete
             _creditCardDal = creditCardDal;
         }
 
+        public IResult Add(CreditCard creditCard)
+        {
+            _creditCardDal.Add(creditCard);
+            return new SuccessResult(Messages.Added);
+        }
+
+        public IResult Delete(CreditCard creditCard)
+        {
+            _creditCardDal.Delete(creditCard);
+            return new SuccessResult(Messages.Deleted);
+        }
+
+        public IDataResult<List<CreditCard>> GetAll()
+        {
+            return new SuccessDataResult<List<CreditCard>>(_creditCardDal.GetAll());
+        }
+
         public IDataResult<List<CreditCard>> GetByCardNumber(string cardNumber)
         {
             return new SuccessDataResult<List<CreditCard>>(_creditCardDal.GetAll(c => c.CardNumber == cardNumber));
