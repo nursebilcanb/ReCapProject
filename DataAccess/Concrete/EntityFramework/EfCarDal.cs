@@ -23,18 +23,17 @@ namespace DataAccess.Concrete.EntityFramework
                              on c.ColorId equals co.ColorId
                              join b in context.Brands
                              on c.BrandId equals b.BrandId
-                             join ca in context.CarImages
-                             on c.CarId equals ca.CarId
+
 
                              select new CarDetailDto
                              {
                                  CarId = c.CarId,
-                                 BrandId=b.BrandId,
-                                 ColorId=co.ColorId,
+                                 BrandId = b.BrandId,
+                                 ColorId = co.ColorId,
                                  BrandName = b.BrandName,
                                  DailyPrice = c.DailyPrice,
                                  ColorName = co.ColorName,
-                                 ImagePath = ca.ImagePath,
+                                 ImagePath = (from carImage in context.CarImages where carImage.CarId == c.CarId select carImage.ImagePath).FirstOrDefault(),
                                  ModelYear = c.ModelYear,
                                  Description = c.Description,
                                  Status = !context.Rentals.Any(r => r.CarId == c.CarId && (r.ReturnDate == null || r.ReturnDate > DateTime.Now))
