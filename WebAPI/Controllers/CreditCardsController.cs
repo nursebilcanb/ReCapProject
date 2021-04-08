@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("update")]
+        [HttpPut("update")]
         public IActionResult Update(CreditCard creditCard)
         {
             var result = _creditCardService.Update(creditCard);
@@ -78,15 +78,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("verifycard")]
-        public IActionResult VerifyCard(CreditCard creditCard)
+        [HttpGet("getcardsbycustomerid")]
+        public IActionResult GetCardsByCustomerId(int customerId)
         {
-            var result = _creditCardService.VerifyCard(creditCard);
+            var result = _creditCardService.GetCardsByCustomerId(customerId);
+
             if (result.Success)
             {
                 return Ok(result);
             }
-            return Ok(result);
+            return BadRequest(result);
         }
+
     }
 }

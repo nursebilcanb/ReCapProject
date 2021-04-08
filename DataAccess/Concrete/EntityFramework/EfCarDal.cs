@@ -36,7 +36,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  ImagePath = (from carImage in context.CarImages where carImage.CarId == c.CarId select carImage.ImagePath).FirstOrDefault(),
                                  ModelYear = c.ModelYear,
                                  Description = c.Description,
-                                 Status = !context.Rentals.Any(r => r.CarId == c.CarId && (r.ReturnDate == null || r.ReturnDate > DateTime.Now))
+                                 Status = !context.Rentals.Any(r => r.CarId == c.CarId && (r.ReturnDate == null || r.ReturnDate > DateTime.Now)),
+                                 FindexPoint = c.FindexPoint
                              };
                 return result.ToList();
 

@@ -38,9 +38,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userdal.GetAll());
         }
 
-        public IDataResult<List<User>> GetById(int id)
+        public IDataResult<User> GetById(int id)
         {
-            return new SuccessDataResult<List<User>>(_userdal.GetAll(u => u.Id==id));
+            return new SuccessDataResult<User>(_userdal.Get(u => u.Id == id));
         }
 
         public User GetByMail(string mail)

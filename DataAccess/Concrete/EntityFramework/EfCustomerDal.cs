@@ -28,9 +28,33 @@ namespace DataAccess.Concrete.EntityFramework
                                  FirstName = u.FirstName,
                                  LastName = u.LastName,
                                  Email = u.Email,
-                                 Status = u.Status
+                                 Status = u.Status,
+                                 
                              };
                 return result.ToList();
+            }
+        }
+
+        public CustomerDetailDto GetByEmail(Expression<Func<CustomerDetailDto, bool>> filter)
+        {
+            using (RentCarContext context = new RentCarContext())
+            {
+                var result = from cs in context.Customers
+                             join u in context.Users
+                             on cs.UserId equals u.Id
+
+                             select new CustomerDetailDto
+                             {
+                                 CustomerId = cs.CustomerId,
+                                 UserId = u.Id,
+                                 FirstName = u.FirstName,
+                                 LastName = u.LastName,
+                                 Email = u.Email,
+                                 CompanyName = cs.CompanyName,
+                                 FindexPoint = cs.FindexPoint
+                             };
+
+                return result.SingleOrDefault(filter);
             }
         }
     }

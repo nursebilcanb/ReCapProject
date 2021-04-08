@@ -7,49 +7,55 @@ namespace Business.Constants
     public class Messages
     {
 
-        public static string DescriptionsInvalid = "Please, write the description length is more than two characters";
+        public static string DescriptionsInvalid = "Lütfen açıklama kısmını iki karakterden fazla yazın";
 
-        public static string DailyPriceInvalid = "Please, add a new car whose daily price is greater than 0!";
+        public static string DailyPriceInvalid = "Lütfen günlük fiyatı 0 dan büyük bir fiyat giriniz";
 
-        public static string ReturnDateNull = "Please, deliver your car";
+        public static string ReturnDateNull = "Lütfen aracınızı teslim edin";
 
-        public static string Added = "Added";
+        public static string Added = "Eklendi";
 
-        public static string Deleted = "Deleted";
+        public static string Deleted = "Silindi";
 
-        public static string Updated = "Updated";
+        public static string Updated = "Güncellendi";
 
-        public static string CarsListed = "Cars listed";
+        public static string CarsListed = "Arabalar listelendi";
         
-        public static string BrandsListed = "Brands listed";
+        public static string BrandsListed = "Markalar listelendi";
 
-        public static string ColorsListed = "Colors listed";
+        public static string ColorsListed = "Renkler listelendi";
 
-        public static string RentalsListed = "Rentals listed";
+        public static string RentalsListed = "Kiralamalar listelendi";
 
-        public static string ImagesListed = "Images listed";
+        public static string ImagesListed = "Fotoğraflar listelendi";
         
         public static string CarImageExceed = "Car images exceed";
 
-        public static string UserRegistered = "Registered";
+        public static string UserRegistered = "Kaydoldu";
 
-        public static string UserNotFound = "User not found";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
 
-        public static string PasswordError = "Password error";
+        public static string PasswordError = "Şifre hatalı";
 
-        public static string AccessTokenCreated = "Token created successfully";
+        public static string AccessTokenCreated = "Token başarılı bir şekilde oluşturuldu";
 
-        public static string SuccessfulLogin = "Login successfully";
+        public static string SuccessfulLogin = "Giriş başarılı";
 
-        public static string UserAlreadyExists = "This user already exists";
+        public static string UserAlreadyExists = "Bu kullanıcı zaten mevcut";
 
         public static string RentedCarAlreadyExists = "This rental car already exists";
 
-        public static string AuthorizationDenied = "You have not any authorization";
+        public static string AuthorizationDenied = "Yetkiniz yok";
 
-        public static string CarNotFound = "This car hasn't found";
+        public static string CarNotFound = "TBu araç bulunamadı";
 
+        public static string CustomerUpdated = "Müşteri bilgileri güncellendi";
 
+        public static string CustomerFindexPointIsZero = "Müşterinin findex puanı 0";
+
+        public static string CustomerScoreInvalid = "Müşterinin findex puanı bu aracı kiralamak için yeterli değil";
+
+        public static string CarAlreadyRented = "Bu araç hala kirada";
 
     }
 }

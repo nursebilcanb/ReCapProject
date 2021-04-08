@@ -16,7 +16,7 @@ namespace Business.Abstract
 
         IDataResult<List<User>> GetAll();
 
-        IDataResult<List<User>> GetById(int id);
+        IDataResult<User> GetById(int id);
 
         List<OperationClaim> GetClaims(User user);
 

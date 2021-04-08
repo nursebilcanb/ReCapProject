@@ -13,6 +13,10 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(c => c.DailyPrice).NotEmpty();
             RuleFor(c => c.DailyPrice).GreaterThan(0);
             RuleFor(c => c.Description.Length).GreaterThan(2);
+
+            RuleFor(c => c.FindexPoint).GreaterThanOrEqualTo(0);
+            RuleFor(c => c.FindexPoint).LessThanOrEqualTo(1900);
+
         }
     }
 }

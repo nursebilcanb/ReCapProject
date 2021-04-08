@@ -1,15 +1,13 @@
 ﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Entities.Concrete
+namespace Entities.DTOs
 {
-    public class CreditCard :IEntity
+    public class CreditCardDetailDto :IDto
     {
-        [Key]
-        public int CardId { get; set; }
+        public int CreditCardId { get; set; }
 
         public int CustomerId { get; set; }
 
@@ -22,6 +20,5 @@ namespace Entities.Concrete
         public string NameOnTheCard { get; set; }
 
         public decimal MoneyInTheCard { get; set; }
-
     }
 }

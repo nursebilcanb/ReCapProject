@@ -8,11 +8,12 @@ namespace Business.Abstract
 {
     public interface ICreditCardService
     {
-        IResult VerifyCard(CreditCard creditCard);
 
         IDataResult<List<CreditCard>> GetAll();
 
         IDataResult<List<CreditCard>> GetByCardNumber(string cardNumber);
+
+        IDataResult<List<CreditCard>> GetCardsByCustomerId(int id);
 
         IResult Update(CreditCard creditCard);
 

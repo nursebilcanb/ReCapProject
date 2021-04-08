@@ -19,5 +19,7 @@ namespace Entities.Concrete
 
         public string Description { get; set; }
 
+        public int FindexPoint { get; set; }
+
     }
 }

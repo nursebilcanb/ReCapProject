@@ -29,5 +29,8 @@ namespace Entities.DTOs
 
         public bool Status { get; set; }
 
+        public int FindexPoint { get; set; }
+
+
     }
 }

@@ -19,7 +19,7 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
-        //[SecuredOperation("admin")]
+        [SecuredOperation("brand.add,admin")]
         public IResult Add(Brand brand)
         {
           _brandDal.Add(brand);
@@ -28,7 +28,7 @@ namespace Business.Concrete
         }
 
 
-        //[SecuredOperation("admin")]
+        [SecuredOperation("brand.delete,admin")]
         public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);
@@ -47,7 +47,7 @@ namespace Business.Concrete
         }
 
 
-        //[SecuredOperation("admin")]
+        [SecuredOperation("brand.update,admin")]
         public IResult Update(Brand brand)
         {
             _brandDal.Update(brand);
