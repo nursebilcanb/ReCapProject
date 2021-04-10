@@ -68,6 +68,15 @@ namespace Business.Concrete
                 Status = true
             };
             _userService.Add(user);
+            var lastUser = _userService.GetLastUser();
+
+            var customer = new Customer
+            {
+                UserId = lastUser.Data.Id,
+                CompanyName = userForRegisterDto.CompanyName,
+                FindexPoint = userForRegisterDto.FindexPoint
+            };
+            _customerService.Add(customer);
             return new SuccessDataResult<User>(user, Messages.UserRegistered);
         }
 

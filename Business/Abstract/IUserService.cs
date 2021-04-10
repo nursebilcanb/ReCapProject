@@ -22,5 +22,7 @@ namespace Business.Abstract
 
         User GetByMail(string mail);
 
+        IDataResult<User> GetLastUser();
+
     }
 }

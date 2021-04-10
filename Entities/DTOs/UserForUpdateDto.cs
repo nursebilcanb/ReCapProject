@@ -11,6 +11,5 @@ namespace Entities.DTOs
 
         public int UserId { get; set; }
 
-        public int FindexPoint { get; set; }
     }
 }
